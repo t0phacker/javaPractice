@@ -19,7 +19,7 @@ class User {
 
 class Customer extends User {
 	private int account;
-	static String address = "주소";
+	public String address;
 	public int getAccount() {
 		return account;
 	}
@@ -40,14 +40,17 @@ public class Test {
 		user.setName("noName");
 		user.setNumber(1);
 		
+		User user2 = new Customer();
+		
 		Customer customer = new Customer();
 		customer.setName("yesName");
 		customer.setNumber(2);
 		customer.setAccount(1234);
-		
+		user2 = customer;
 		user = customer; // 업캐스팅
+		System.out.print("instanceof: ");
+		System.out.println(user instanceof User);
 		System.out.println(user.getName());
-		
 		customer = (Customer) user; // 커스터머에 유저 대입할 땐 캐스팅 필요?
 		
 		int a = 1;
